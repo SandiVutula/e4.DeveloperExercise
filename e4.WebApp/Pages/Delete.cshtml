@@ -1,0 +1,13 @@
+﻿@page
+@model e4.WebApp.Model.User
+
+<h2>Delete User</h2>
+
+<p>Are you sure you want to delete the user <strong>@Model.Name @Model.Surname</strong> with cellphone number <strong>@Model.Cellphone</strong>?</p>
+
+@using (Html.BeginForm())
+{
+    <button type="submit" class="btn btn-danger">Delete</button>
+    @Html.ActionLink("Cancel", "Index")
+}
+

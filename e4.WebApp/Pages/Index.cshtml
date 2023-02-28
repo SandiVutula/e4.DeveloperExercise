@@ -1,0 +1,32 @@
+﻿@page
+@using e4.WebApp.Model;
+@model List<User>
+
+<h2>User List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Cellphone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Surname</td>
+                <td>@user.Cellphone</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { cellphone = user.Cellphone })" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", new { cellphone = user.Cellphone })" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p><a href="@Url.Action("Add")" class="btn btn-primary">Add User</a></p>
